@@ -305,12 +305,22 @@ available from the Electron API.  See the following options for usage.
     
     -s | --printSelectionOnly  Boolean - Whether to print selection only
                                  false - default
+
+    -m | --marginsType          Integer - Specify the type of margins to use
+                                 0 - default
+                                 1 - none
+                                 2 - minimum
+
+    -d | --disableCache        Disable HTTP caching
                                  
     -t | --trustRemoteContent  Boolean - Whether to trust remote content loaded in the Electron webview.  False by default.
     --type                     String - The type of export, will dictate the output file type.  'png': PNG image, anything else: PDF File
     
     -w | --outputWait          Integer – Time to wait (in MS) between page load and PDF creation.  
-                                         If used in conjunction with -e this will override the default timeout of 10 seconds    
+                                         If used in conjunction with -e this will override the default timeout of 10 seconds
+
+    -W | --waitForTitle        String - Wait until window.title is equal to this string before rendering page, or until outputWait is done, whichever occurs first
+
     --ignoreCertificateErrors  Boolean - If true, all certificate errors thrown by Electron will be ignored.  This can be used to accept self-signed and untrusted certificates.  You should be aware of the security implications of setting this flag.
                              false - default
 ```
@@ -323,6 +333,7 @@ Debugging
 ## Sentry
 If you have a [Sentry](https://sentry.io) account and setup a new app to get a new DSN, you can set a `SENTRY_DSN` environment variable which will activate sentry logs.
 See `lib/sentry.js` for implementation details.
+
 
 This will allow you to easily see/monitor errors that are occuring inside of the Chromium renderer (browser window).
 It also automatically integrates with Electron's [Crash Reporter](https://electronjs.org/docs/api/crash-reporter)
