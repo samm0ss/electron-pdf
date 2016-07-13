@@ -7,7 +7,7 @@
     "fix": "standard --fix",
     "lint": "standard",
     "unit-test": "ava | tap-diff",
-    "test": "npm run fix && ava **/*-test.js | tap-diff && electron-ava --tap **/*-test-it.js | tap-diff"
+    "test": "standard && ./cli.js test.html test.pdf -W ready -w 10000"
   },
   "bin": {
     "electron-pdf": "cli.js"
