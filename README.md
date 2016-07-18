@@ -165,6 +165,7 @@ $ electron-pdf index.html ~/Desktop/index.pdf -c my-awesome-css.css
 $ electron-pdf https://fraserxu.me ~/Desktop/fraserxu.pdf
 ```
 
+<<<<<<< HEAD
 Rendering Options
 -----
 Electron PDF gives you complete control of how the BrowserWindow should be configured, and when 
@@ -257,6 +258,26 @@ All Available Options
 
 Electron PDF exposes the printToPDF settings (i.e. pageSize, orientation, margins, etc.) 
 available from the Electron API.  See the following options for usage.
+=======
+### To generate a PDF from within a Docker container
+
+```
+$ docker build -t electron-pdf .
+$ docker run electron-pdf
+$ docker cp electron-pdf:/app/test.pdf docker-test.pdf .
+```
+
+### To run a test inside Docker
+
+```
+$ docker run -i -t electron-pdf /bin/bash
+$ Xvfb -ac -screen scrn 1280x2000x24 :9.0 & export DISPLAY=:9.0
+$ ./cli.js test.html test.pdf -W ready -w 5000
+
+```
+
+### More
+>>>>>>> Cleanup
 
 ```
 
@@ -320,6 +341,7 @@ available from the Electron API.  See the following options for usage.
                                          If used in conjunction with -e this will override the default timeout of 10 seconds
 
     -W | --waitForTitle        String - Wait until window.title is equal to this string before rendering page, or until outputWait is done, whichever occurs first
+
 
     --ignoreCertificateErrors  Boolean - If true, all certificate errors thrown by Electron will be ignored.  This can be used to accept self-signed and untrusted certificates.  You should be aware of the security implications of setting this flag.
                              false - default
